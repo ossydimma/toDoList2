@@ -3,8 +3,23 @@ const  addTask = document.querySelector('.add-task');
 const  input = document.getElementById('entered-task');
 
 
+const myArray = []
+const newArray = []
+
+localStorage.setItem('tasks', JSON.stringify(myArray))
+
+const stored = localStorage.getItem('tasks');
+const storedArray = stored ? JSON.parse(stored) : []
+
+// newArray.push(stored)
+console.log(storedArray)
+
+
+
 //adding event to addTask
-addTask.addEventListener('click', () => {
+addTask.addEventListener('click', addItem );
+
+function addItem() {
     
     //creating a div element for new tasks
     let taskBox = document.createElement('div');
@@ -40,6 +55,7 @@ addTask.addEventListener('click', () => {
     };
 
     addButton()
+    
    
     //confirming if input contain a value
     if (input.value == "") {
@@ -50,7 +66,12 @@ addTask.addEventListener('click', () => {
         taskBox.appendChild(taskText)
         taskBox.appendChild(btns)
         tasks.appendChild(taskBox)
-        newTask.value = input.value
+        let lastest = input.value
+        newTask.value = lastest
+        myArray.push(lastest)
+        localStorage.setItem('tasks', JSON.stringify(myArray))
+        
+        console.log(storedArray)
     }
 
     //editting task
@@ -79,4 +100,10 @@ addTask.addEventListener('click', () => {
     if (len.length > 7) {
         newTask.style.width = '120px';
     }
-})
+};
+
+input.addEventListener('keyup', (e)=> {
+    
+    if (e.key === 'Enter') { addItem() }
+});
+

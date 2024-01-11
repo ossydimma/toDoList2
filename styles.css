@@ -31,8 +31,9 @@ body {
     color: green;
     margin-left: 15px ;
     font-size: 20px;
-    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.7);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transform: rotateX(150deg);
 }
 .add-task:hover {
     background-color: green;
