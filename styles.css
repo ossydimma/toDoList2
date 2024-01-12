@@ -9,6 +9,9 @@ body {
     width: 100vw;
     overflow: hidden;
 }
+li {
+    list-style: none;
+}
 #text-sec {
     text-align: center;
     margin-top: 80px;
@@ -41,7 +44,7 @@ body {
 }
 
 #tasks-container {
-    text-align: center;
+    /* text-align: center; */
     height: 70vh;
 }
 
@@ -64,13 +67,13 @@ body {
     border-radius: 20px;
     background-color: #fff;
     flex: 5;
-    align-self: center;
     font-size: 17px;
     text-align: center;
     margin-right: 10px;
     border: 2px solid gray;
 }
-.task-text li {
+.task-text  {
+    display: flex;
     text-align: center;
     cursor: pointer;
 }
