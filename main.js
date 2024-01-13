@@ -7,11 +7,10 @@ addTask.addEventListener("click", addItem);
 
 let storedData = JSON.parse(localStorage.getItem("storedTask")) || [];
 
-window.addEventListener('load', ()=> {
-    console.log(storedData.length);
-    console.log(localStorage.getItem("storedTask").length);
-    storedData.length === 0 ? '' : displayTask()
-})
+window.addEventListener('load', ()=> storedData.length !== 0 ? displayTask() : '')
+
+    
+
 
 //  still having issue when load
 function addItem() {
@@ -27,7 +26,7 @@ function addItem() {
         storedData.push(lastest);
         localStorage.setItem("storedTask", JSON.stringify(storedData));
 
-        console.log(storedData);
+        
         displayTask();
 
         
@@ -128,5 +127,4 @@ input.addEventListener("keyup", (e) => {
     }
 });
 
-// window.onload = displayTask()
 
